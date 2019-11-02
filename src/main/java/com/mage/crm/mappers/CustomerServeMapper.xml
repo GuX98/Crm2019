@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+        "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mage.crm.dao.CustomerServeDao">
+    <select id="queryCustomerServeType" resultType="com.mage.crm.dto.ServeTypeDto">
+        SELECT
+        c.serve_type AS 'name',
+        COUNT(*) AS 'value'
+        FROM
+        t_customer_serve c
+        WHERE
+        is_valid = 1
+        GROUP BY
+        c.serve_type
+    </select>
+</mapper>
